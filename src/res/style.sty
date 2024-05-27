@@ -1,0 +1,152 @@
+\ProvidesPackage{style}
+
+\usepackage{cmap} % for pdfLaTeX
+\usepackage[T1,T2A]{fontenc} % correct encoding for pdfLaTeX
+\usepackage[utf8]{inputenc} % correct encoding source file
+\usepackage[english,russian]{babel} % correct language
+
+\usepackage[labelsep=period]{caption}
+\captionsetup[figure]{labelsep=endash}
+
+
+\frenchspacing
+\pagestyle{plain}
+
+\usepackage[left=3cm, right=1.5cm, vmargin=2cm]{geometry}
+\linespread{1.5} % line spacing 1.5
+\usepackage{indentfirst} % indent first paragraph
+\setlength{\parindent}{1.25cm}
+\sloppy
+
+\usepackage{setspace}
+\onehalfspacing
+
+% section size
+\usepackage{titlesec}
+
+\titleformat{\chapter}{\fontsize{18pt}{22pt}\bfseries}{\thechapter.}{1em}{}
+\titleformat{\section}{\fontsize{16pt}{20pt}\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}{\fontsize{14pt}{18pt}\bfseries}{\thesubsection.}{1em}{}
+\titleformat{\subsubsection}{\fontsize{14pt}{18pt}\bfseries}{\thesubsubsection.}{1em}{}
+
+
+% for graphics
+\usepackage{graphicx}
+
+\usepackage{amsmath}
+\usepackage{listings}
+\lstset{
+	basicstyle=\ttfamily\footnotesize,
+	backgroundcolor=\color{white},
+	frame=single,
+	framerule=0.5pt,
+	rulecolor=\color{black},
+	captionpos=t,
+	tabsize=2,
+	breaklines=true,
+	breakatwhitespace=true,
+	%numbers=left,
+	%numberstyle=\tiny\color{gray},
+	%stepnumber=1,
+	%numbersep=10pt,
+	columns=fullflexible,
+    flexiblecolumns,
+    keepspaces=true,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+    extendedchars=true,
+	breakautoindent=true,
+}
+
+\usepackage{longtable}
+
+\usepackage{pdfpages}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+\usepackage{enumitem}
+\setlist{nosep}
+\setlist[enumerate]{label*=\arabic*.}
+\setlist[description]{style=nextline}
+
+% for headers and footers
+\usepackage{fancyhdr}
+
+% for non-end-to-end numbering
+%\usepackage{chngcntr}
+%\counterwithin{figure}{section}
+%\counterwithin{table}{section}
+
+\clubpenalty=10000
+\widowpenalty=10000
+
+\providecommand{\No}{\textnumero}
+
+%\setlength{\abovecaptionskip}{3pt}
+%\setlength{\belowcaptionskip}{3pt}
+
+\newenvironment{image}{
+	\begin{figure}[h!tp]
+	\centering
+}{
+	\end{figure}
+}
+\newcommand\includegrph[2][width=0.6\textwidth]{\includegraphics[#1]{#2}}
+
+\newcommand{\Appendix}{
+	\appendix
+	\titleformat{\chapter}{\fontsize{18pt}{22pt}\bfseries}{\appendixname~\thechapter.}{1em}{}
+}
+
+\newcommand\Chapter[1]{
+	\refstepcounter{chapter}
+	\chapter*{
+		\textbf{\chaptername\ \arabic{chapter}.}
+		\raggedright #1
+	}
+	\addcontentsline{toc}{chapter}{\arabic{chapter} #1}
+}
+
+\definecolor{bluekeywords}{rgb}{0.13, 0.13, 1}
+\definecolor{greencomments}{rgb}{0, 0.5, 0}
+\definecolor{redstrings}{rgb}{0.9, 0, 0}
+\definecolor{graynumbers}{rgb}{0.5, 0.5, 0.5}
+
+
+\definecolor{bluekeywords}{rgb}{0.13, 0.13, 1}
+\definecolor{greencomments}{rgb}{0, 0.5, 0}
+\definecolor{redstrings}{rgb}{0.9, 0, 0}
+\definecolor{graynumbers}{rgb}{0.5, 0.5, 0.5}
+\RequirePackage{xcolor}
+
+\definecolor{NavyBlue}{rgb}{0.0, 0.0, 0.5}
+
+\definecolor{ForestGreen}{rgb}{0.0, 0.27, 0.13}
+
+\lstdefinelanguage{Python}{
+	comment=[l]{//},
+	breaklines=true,
+	numbers=left,
+	basicstyle=\footnotesize,
+	commentstyle={\color{gray}\ttfamily},
+	emph={filter, first, firstOrNull, forEach, lazy, map, mapNotNull, println},
+	emphstyle={\color{OrangeRed}},
+	identifierstyle=\color{black},
+	keywords={!in, !is, abstract, actual, annotation, as, as?, break, by, catch, class, companion, const, constructor, continue, crossinline, data, delegate, do, dynamic, else, enum, expect, external, false, field, file, final, finally, for, fun, get, if, import, in, infix, init, inline, inner, interface, internal, is, lateinit, noinline, null, object, open, operator, out, override, package, param, private, property, protected, public, receiveris, reified, return, return@, sealed, set, setparam, super, suspend, tailrec, this, throw, true, try, typealias, typeof, val, var, vararg, when, where, while},
+	keywordstyle={\color{NavyBlue}\bfseries},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]",
+	morestring=[s]{"""*}{*"""},
+	ndkeywords={@Deprecated, @JvmField, @JvmName, @JvmOverloads, @JvmStatic, @JvmSynthetic, Array, Byte, Double, Float, Int, Integer, Iterable, Long, Runnable, Short, String, Any, Unit, Nothing},
+	ndkeywordstyle={\color{BurntOrange}\bfseries},
+	sensitive=true,
+	stringstyle={\color{ForestGreen}\ttfamily},
+	frame=tblr ,
+}

@@ -1,0 +1,25 @@
+\documentclass[14pt,a4paper,oneside]{extarticle}
+
+\usepackage{res/style}
+\graphicspath{{img}}
+
+\newcommand{\chapterbreak}{\clearpage}
+
+\author{Bondar Andrei Renatovich}
+\date{\today}
+
+\begin{document}
+\renewcommand{\figurename}{Рисунок}
+\renewcommand{\contentsname}{СОДЕРЖАНИЕ}
+\renewcommand{\bibname}{СПИСОК ИСПОЛЬЗУЕМОЙ ЛИТЕРАТУРЫ}
+
+%\includepdf[pages=-]{./res/title.pdf}
+
+\tableofcontents
+
+\include{intro}
+\include{realization}
+\include{conclusion}
+
+\end{document}
+

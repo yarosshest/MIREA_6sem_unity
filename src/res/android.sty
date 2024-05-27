@@ -1,0 +1,51 @@
+\ProvidesPackage{android}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+
+\definecolor{string}{rgb}{0,0.6,0}
+\definecolor{comment}{rgb}{0.5, 0.5, 0.5}
+
+% XML style
+\definecolor{androidcolor}{rgb}{0.5,0,0.5}
+\definecolor{darkyellow}{RGB}{204, 204, 0}
+
+\lstdefinelanguage{XML}
+{
+  keywords={
+	  % resources
+	  resources, style, item, string, color, dimen, 
+	  % layout
+	  EditText, Button, TextView, ImageView, LinearLayout, RelativeLayout, ConstraintLayout, RecyclerView, CardView, Spinner, CheckBox, RadioButton, Switch, ProgressBar, SeekBar, DatePicker, TimePicker, NumberPicker, Toolbar, TabLayout, ViewPager, FloatingActionButton, NavigationView, DrawerLayout, CoordinatorLayout, AppBarLayout, BottomNavigationView, MenuItem, Menu, Dialog, AlertDialog, ProgressDialog, PopupMenu, Notification, NotificationChannel, NotificationManager, NotificationCompat, Intent, PendingIntent, BroadcastReceiver, Service, AsyncTask},
+  keywordstyle=\color{darkyellow},
+  ndkeywords={android},
+  ndkeywordstyle=\color{androidcolor}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=true,
+  morecomment=[s]{<!--}{-->},
+  commentstyle=\color{comment}\ttfamily,
+  stringstyle=\color{string}\ttfamily,
+  morestring=[b]",
+  morestring=[b]',
+}
+
+% Kotlin style
+\definecolor{kotlinkeyword}{rgb}{0.49, 0.49, 0.93}
+
+\lstdefinelanguage{Kotlin}{
+  keywords={abstract, actual, as, as?, break, by, catch, class, companion, const, constructor, continue, crossinline, data, delegate, do, dynamic, else, enum, expect, external, false, field, file, final, finally, for, fun, get, if, import, in, infix, init, inline, inner, interface, internal, is, it, lateinit, noinline, null, object, open, operator, out, override, package, param, private, property, protected, public, receiver, reified, return, sealed, set, super, suspend, tailrec, this, throw, true, try, typealias, typeof, val, var, vararg, when, where, while},
+  keywordstyle=\color{kotlinkeyword}\bfseries,
+  ndkeywords={@Deprecated, @JvmField, @JvmOverloads, @JvmStatic, @JvmSynthetic, @JvmName, @JvmMultifileClass, @JvmPackageName, @JvmSuppressWildcards, @JvmWildcard, @Synchronized, @Throws, @Transient, @Volatile, @Repeatable, @PublishedApi, @Retention, @MustBeDocumented, @Target, @Annotation, @TestOnly},
+  ndkeywordstyle=\color{kotlinkeyword}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=true,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{comment}\ttfamily,
+  stringstyle=\color{string}\ttfamily,
+  morestring=[b]",
+  morestring=[b]',
+}
+
+

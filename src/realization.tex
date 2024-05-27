@@ -1,0 +1,64 @@
+\section{Разработка}
+
+Разработка игры ведётся на движке Unity.
+Для создания основных игровых механик,
+таких как управление автомобилем, стрельба и генерация врагов,
+используются скрипты на языке C\#.
+
+\subsection{Управление }
+
+Ниже представлен код, отвечающий за управление и игровой процесс:
+\lstinputlisting[language=Python,
+	caption=\leftline{Управление}]{code/control.cs}
+
+Этот скрипт (\texttt{control.cs}) является основным для управления и игрового процесса.
+Он обрабатывает создание мячей, подсчет времени, вывод очков.
+Метод \textbf{Update()}
+обрабатывает ввод от игрока, подсчет времени, вывод очков.
+
+Код для отображения счета:
+\lstinputlisting[language=C,
+	caption=\leftline{Код для отображения счета}]{code/ScoreGUI.cs}
+
+
+\subsection{Цели}
+
+Код для цели:
+\lstinputlisting[language=Python,
+	caption=\leftline{Код для цели}]{code/Target.cs}
+
+Скрипт \texttt{Target.cs} отвечает за префаб цели.
+В методе \textbf{Start()} меняется текст в соответствии со значением цели.
+Функция \textbf{OnTriggerEnter()} цель удаляется цель с мечем.
+
+Код для генерации целей:
+\lstinputlisting[language=Python,
+	caption=\leftline{Код для генерации целей}]{code/TargetGen.cs}
+
+Скрипт \texttt{TargetGen.cs} создание целей.
+Метод \textbf{UpdateCylinders()} проверяет кол-во целей.
+Метод \textbf{GenerateCylinders()} создает цилиндры.
+Метод \textbf{GetRandomPosition()} создает точку внутри границ для генерации целей.
+Метод \textbf{CheckValidPosition(Vector3 posNew)} проверяет точку на близкое расположение другим целям.
+                                                                               
+Код для удаления мячей:
+\lstinputlisting[language=Python,
+	caption=\leftline{Код для удаления мячей}]{code/Deleter.cs}
+
+Скрипт \texttt{Deleter.cs} отвечает за удаление мячей при удалении от игрока.
+
+\subsection{Логика игры}
+
+Код управления сохранением:
+\lstinputlisting[language=Python,
+	caption=\leftline{Код управления сохранениемв}]{code/SaveLoadManager.cs}
+
+Скрипт \texttt{SaveLoadManager.cs} отвечает за сохранение и загрузку данных о рейтинге.
+
+Код управления меню:
+\lstinputlisting[language=Python,
+	caption=\leftline{Код управления меню}]{code/menu.cs}
+
+Скрипт \texttt{menu.cs} отвечает за меню.
+
+
